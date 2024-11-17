@@ -1,0 +1,46 @@
+﻿﻿<Window x:Class="ClientChat.MainWindow"
+	   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	   Title="Chat Client" Height="450" Width="800" Background="#fff0f5">
+	<DockPanel>
+
+		<TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="24" FontWeight="Bold"
+                   Margin="10" Foreground="#D5006D">Chat Application</TextBlock>
+
+		<DockPanel DockPanel.Dock="Top" Margin="10" Background="#ffffff" >
+			<Label Margin="5" Foreground="#333333">Message:</Label>
+			<TextBox Margin="5" VerticalContentAlignment="Center" Name="msgTextBox"
+                     Width="400" Background="#FFCCFF" Foreground="#000000"
+                     BorderBrush="#D5006D" BorderThickness="1"/>
+			<Button DockPanel.Dock="Right" Padding="10,5" Margin="5" Click="Send_Button_Click"
+                    Background="#D5006D" Foreground="#ffffff" BorderBrush="Transparent">
+				Send
+			</Button>
+		</DockPanel>
+
+
+		<DockPanel DockPanel.Dock="Top" Margin="10" Background="#ffffff" >
+			<Button DockPanel.Dock="Right" Padding="10,5" Margin="5" Click="Leave_Button_Click"
+                    IsEnabled="False" Name="leaveButton"
+                    Background="#FF69B4" Foreground="#ffffff" BorderBrush="Transparent">
+				Leave
+			</Button>
+			<Button DockPanel.Dock="Right" Padding="10,5" Margin="5" Click="Join_Button_Click"
+                    Name="joinButton" Background="#FF69B4" Foreground="#ffffff"
+                    BorderBrush="Transparent">
+				Join
+			</Button>
+		</DockPanel>
+
+
+		<ListBox ItemsSource="{Binding}" Margin="10" Name="chatListBox"
+                 Background="#FF69B4" Foreground="#333333" BorderBrush="#D5006D"
+                 BorderThickness="1">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding}" FontSize="14" />
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</DockPanel>
+</Window>
